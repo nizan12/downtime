@@ -332,6 +332,10 @@ async function bootstrap() {
   });
 }
 
-bootstrap().catch((err) => {
-  console.error("Failed to start server:", err);
-});
+if (!process.env.VERCEL) {
+  bootstrap().catch((err) => {
+    console.error("Failed to start server:", err);
+  });
+}
+
+export default app;
