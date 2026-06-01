@@ -656,18 +656,6 @@ except Exception as e:
                 <span className="data-font text-[10px] text-green-500 font-bold">112ms / 200 OK</span>
               </div>
             </div>
-
-            {/* Custom quota visualizer element */}
-            <div className="mt-6 p-4 bg-black/60 border border-white/10 rounded">
-              <span className="text-[10px] data-font text-gray-500 block mb-2 uppercase font-bold tracking-widest">ACTIVE SESSION QUOTA STATE</span>
-              <div className="h-1.5 w-full bg-gray-800 rounded-full overflow-hidden">
-                <div className="h-full bg-green-500 w-4/5"></div>
-              </div>
-              <div className="flex justify-between mt-2">
-                <span className="data-font text-[9px] text-gray-500">12,402 / 15,000 requests</span>
-                <span className="data-font text-[9px] text-gray-400">Resets in 4h</span>
-              </div>
-            </div>
           </div>
 
           {/* Section 2: Account stats overview */}
