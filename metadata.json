@@ -1,0 +1,6 @@
+{
+  "name": "Website Status Checker API",
+  "description": "Layanan web untuk memantau status website (up atau down) serta menyediakan API publik yang dapat digunakan oleh aplikasi lain.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
