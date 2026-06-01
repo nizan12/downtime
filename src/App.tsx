@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { 
-  motion, 
-  AnimatePresence 
+import {
+  motion,
+  AnimatePresence
 } from "motion/react";
-import { 
-  Globe, 
-  CheckCircle, 
-  AlertTriangle, 
-  Cpu, 
-  Clock, 
-  Clock3, 
-  Terminal, 
-  Copy, 
-  Check, 
-  RefreshCw, 
-  ArrowRight, 
-  Hash, 
-  Zap, 
-  ShieldAlert, 
-  BookOpen, 
-  ExternalLink 
+import {
+  Globe,
+  CheckCircle,
+  AlertTriangle,
+  Cpu,
+  Clock,
+  Clock3,
+  Terminal,
+  Copy,
+  Check,
+  RefreshCw,
+  ArrowRight,
+  Hash,
+  Zap,
+  ShieldAlert,
+  BookOpen,
+  ExternalLink
 } from "lucide-react";
 
 import { CheckLog, Stats } from "./types";
@@ -225,47 +225,43 @@ except Exception as e:
 
   return (
     <div className="min-h-screen bg-[#0E0E10] text-[#E0E0E0] font-sans flex flex-col justify-between overflow-x-hidden">
-      
+
       {/* Top Navigation Bar */}
       <nav className="h-16 border-b border-white/10 flex items-center justify-between px-6 md:px-8 bg-[#0E0E10] z-10">
         <div className="flex items-center gap-3">
           <div className="w-3 h-3 bg-green-500 rounded-full glow-green"></div>
-          <span className="font-bold tracking-tighter text-xl text-white">PULSE<span className="text-green-500">.API</span></span>
+          <span className="font-bold tracking-tighter text-xl text-white">DOWN<span className="text-green-500">.TIME</span></span>
         </div>
         <div className="hidden md:flex gap-8 text-xs uppercase tracking-widest font-semibold text-gray-400">
-          <button 
+          <button
             type="button"
             onClick={() => scrollToSection("dashboard", "dashboard-section")}
-            className={`cursor-pointer transition-colors pb-1 border-b-2 ${
-              activeTab === "dashboard" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
-            }`}
+            className={`cursor-pointer transition-colors pb-1 border-b-2 ${activeTab === "dashboard" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
+              }`}
           >
             Dashboard
           </button>
-          <button 
+          <button
             type="button"
             onClick={() => scrollToSection("explorer", "explorer-section")}
-            className={`cursor-pointer transition-colors pb-1 border-b-2 ${
-              activeTab === "explorer" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
-            }`}
+            className={`cursor-pointer transition-colors pb-1 border-b-2 ${activeTab === "explorer" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
+              }`}
           >
             API Explorer
           </button>
-          <button 
+          <button
             type="button"
             onClick={() => scrollToSection("integration", "integration-section")}
-            className={`cursor-pointer transition-colors pb-1 border-b-2 ${
-              activeTab === "integration" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
-            }`}
+            className={`cursor-pointer transition-colors pb-1 border-b-2 ${activeTab === "integration" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
+              }`}
           >
             Integration
           </button>
-          <button 
+          <button
             type="button"
             onClick={() => scrollToSection("logs", "logs-section")}
-            className={`cursor-pointer transition-colors pb-1 border-b-2 ${
-              activeTab === "logs" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
-            }`}
+            className={`cursor-pointer transition-colors pb-1 border-b-2 ${activeTab === "logs" ? "text-white border-green-500 font-bold" : "text-gray-400 hover:text-white border-transparent"
+              }`}
           >
             Logs
           </button>
@@ -280,27 +276,27 @@ except Exception as e:
 
       {/* Main Content Grid with Technical Grid Pattern */}
       <div className="flex-1 min-h-0 technical-grid grid grid-cols-1 lg:grid-cols-12 gap-0 border-b border-white/10">
-        
+
         {/* LEFT & CENTER ZONE: Verification tool, timeline, and snippets */}
         <section className="lg:col-span-8 flex flex-col divide-y divide-white/10 border-r border-white/10">
-          
+
           {/* Section 1: Instant System Validation input form */}
           <div id="dashboard-section" className="p-6 md:p-8 bg-black/30 flex flex-col justify-center min-h-[160px] scroll-mt-6">
             <h2 className="serif-header text-gray-400 text-sm mb-3 uppercase tracking-wider">Instant System Validation</h2>
-            
+
             <form onSubmit={handleCheck} className="flex flex-col sm:flex-row gap-2.5">
               <div className="flex-1 bg-[#1A1A1E] border border-white/10 rounded p-1.5 flex items-center shadow-inner">
                 <span className="px-3 text-gray-500 data-font text-xs tracking-wider border-r border-white/5 mr-2">HTTPS://</span>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   disabled={isChecking}
                   value={urlInput}
                   onChange={(e) => setUrlInput(e.target.value)}
-                  placeholder="example-domain.com atau detik.com" 
+                  placeholder="example-domain.com atau detik.com"
                   className="bg-transparent border-none outline-none flex-1 text-white text-base font-medium placeholder-gray-700 font-mono w-full min-w-0"
                 />
               </div>
-              <button 
+              <button
                 id="btn-check-website"
                 type="submit"
                 disabled={isChecking || !urlInput.trim()}
@@ -475,9 +471,8 @@ except Exception as e:
                 <button
                   key={lang}
                   onClick={() => setDocLang(lang)}
-                  className={`px-6 py-3 border-r border-white/10 text-xs font-bold font-mono uppercase tracking-widest cursor-pointer transition-colors ${
-                    docLang === lang ? "bg-[#1A1A1E] text-white border-t-2 border-t-green-500" : "text-gray-500 hover:text-gray-300"
-                  }`}
+                  className={`px-6 py-3 border-r border-white/10 text-xs font-bold font-mono uppercase tracking-widest cursor-pointer transition-colors ${docLang === lang ? "bg-[#1A1A1E] text-white border-t-2 border-t-green-500" : "text-gray-500 hover:text-gray-300"
+                    }`}
                 >
                   {lang}
                 </button>
@@ -577,7 +572,7 @@ except Exception as e:
           {/* Section 4: Pulse Heartbeat Timeline Bar graphs (High Density visualization) */}
           <div className="p-6 md:p-8 bg-black/25">
             <h3 className="serif-header text-gray-400 text-xs uppercase mb-4 tracking-wider">Pulse Heartbeat Timeline (Last 24h Global Status)</h3>
-            
+
             <div className="flex gap-[3px] h-14 items-end bg-[#121214] p-3 rounded border border-white/5">
               {/* Render an elegant, detailed bar monitoring graph representing simulation state */}
               <div className="flex-1 bg-green-500 h-full opacity-35" title="US-EAST: OK"></div>
@@ -623,11 +618,11 @@ except Exception as e:
 
         {/* RIGHT ZONE: Global status, statistics overview, and recent activity log */}
         <section className="lg:col-span-4 p-6 md:p-8 bg-[#121214] flex flex-col justify-between divide-y divide-white/10 space-y-6">
-          
+
           {/* Section 1: Regional Network status */}
           <div className="pb-6">
             <h3 className="serif-header text-gray-400 text-xs uppercase mb-5 tracking-wider">Regional Network Nodes</h3>
-            
+
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs pb-1 border-b border-white/5">
                 <div className="flex items-center gap-2.5">
@@ -678,7 +673,7 @@ except Exception as e:
           {/* Section 2: Account stats overview */}
           <div className="py-6">
             <h3 className="serif-header text-gray-400 text-xs uppercase mb-5 tracking-wider">Account Overview</h3>
-            
+
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 border border-white/5 rounded bg-black/35">
                 <span className="text-[9px] text-gray-500 block uppercase font-bold">Total Checks</span>
@@ -723,8 +718,8 @@ except Exception as e:
                   <p className="text-xs text-gray-600 italic">// Awaiting checks to stream telemetry logs</p>
                 ) : (
                   recentChecks.slice(0, 5).map((log) => (
-                    <div 
-                      key={log.id} 
+                    <div
+                      key={log.id}
                       onClick={() => {
                         setUrlInput(log.url);
                         handleCheck(undefined, log.url);
@@ -747,7 +742,7 @@ except Exception as e:
 
             {/* Quick manual statistics trigger */}
             <div className="pt-6">
-              <button 
+              <button
                 onClick={fetchStats}
                 className="w-full py-2.5 bg-zinc-900 hover:bg-zinc-800 border border-white/10 hover:border-white/20 active:bg-black rounded text-[11px] font-mono font-bold text-gray-300 flex items-center justify-center gap-2 cursor-pointer transition-all"
               >
