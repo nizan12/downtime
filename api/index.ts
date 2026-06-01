@@ -28,6 +28,13 @@ function getHttpStatusText(statusCode: number): string {
     505: "HTTP Version Not Supported",
     507: "Insufficient Storage",
     508: "Loop Detected",
+    520: "Web Server Returned an Unknown Error",
+    521: "Web Server Is Down",
+    522: "Connection Timed Out",
+    523: "Origin Is Unreachable (Bad Gateway)",
+    524: "A Timeout Occurred",
+    525: "SSL Handshake Failed",
+    526: "Invalid SSL Certificate",
   };
   return statusMap[statusCode] || "Unknown Status";
 }
