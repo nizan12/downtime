@@ -41,7 +41,7 @@ export default function App() {
   const [isLoadingStats, setIsLoadingStats] = useState(true);
 
   // API Playground State
-  const [playgroundUrl, setPlaygroundUrl] = useState("detik.com");
+  const [playgroundUrl, setPlaygroundUrl] = useState("polibatam.ac.id");
   const [playgroundResult, setPlaygroundResult] = useState<any>(null);
   const [playgroundLoading, setPlaygroundLoading] = useState(false);
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
@@ -172,9 +172,9 @@ export default function App() {
 
   // Code generator blocks
   const apiDocumentationSnippets = {
-    curl: `curl -X GET "${appOrigin}/api/check?url=detik.com"`,
+    curl: `curl -X GET "${appOrigin}/api/check?url=polibatam.ac.id"`,
     fetch: `// Contoh Pemanggilan Menggunakan Native Fetch API (JS/TS)
-fetch("${appOrigin}/api/check?url=detik.com")
+fetch("${appOrigin}/api/check?url=polibatam.ac.id")
   .then(response => response.json())
   .then(result => {
     if (result.success) {
@@ -190,7 +190,7 @@ fetch("${appOrigin}/api/check?url=detik.com")
 import axios from 'axios';
 
 axios.get('${appOrigin}/api/check', {
-  params: { url: 'detik.com' }
+  params: { url: 'polibatam.ac.id' }
 })
 .then(response => {
   const result = response.data;
@@ -206,7 +206,7 @@ axios.get('${appOrigin}/api/check', {
 import requests
 
 api_url = "${appOrigin}/api/check"
-params = {"url": "detik.com"}
+params = {"url": "polibatam.ac.id"}
 
 try:
     response = requests.get(api_url, params=params)
@@ -292,7 +292,7 @@ except Exception as e:
                   disabled={isChecking}
                   value={urlInput}
                   onChange={(e) => setUrlInput(e.target.value)}
-                  placeholder="example-domain.com atau detik.com"
+                  placeholder="example-domain.com atau polibatam.ac.id"
                   className="bg-transparent border-none outline-none flex-1 text-white text-base font-medium placeholder-gray-700 font-mono w-full min-w-0"
                 />
               </div>
