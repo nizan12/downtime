@@ -763,10 +763,11 @@ except Exception as e:
       {/* Footer Bar */}
       <footer className="h-14 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between px-6 md:px-8 bg-[#0E0E10] text-[10px] data-font text-gray-600 gap-2 sm:gap-0 py-3 sm:py-0">
         <div>STATUS: <span className="text-green-500 font-bold">ALL SYSTEMS OPERATIONAL</span></div>
-        <div className="flex flex-wrap gap-4 sm:gap-6 uppercase tracking-widest text-[9px]">
+        <div className="flex flex-wrap gap-4 sm:gap-6 uppercase tracking-widest text-[9px] items-center">
           <span>Ver: 2.4.1-Stable</span>
           <span>Cloud: ASIA-SE-RUN</span>
           <span className="text-gray-400">© 2026 Pulse Technologies Inc.</span>
+          <span className="text-gray-500 font-semibold normal-case">Made by M S Nizan</span>
         </div>
       </footer>
 
