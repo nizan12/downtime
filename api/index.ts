@@ -4,6 +4,34 @@ import { promisify } from "util";
 
 const lookupPromise = promisify(dns.lookup);
 
+function getHttpStatusText(statusCode: number): string {
+  const statusMap: { [key: number]: string } = {
+    200: "OK",
+    400: "Bad Request",
+    401: "Unauthorized",
+    403: "Forbidden",
+    404: "Not Found",
+    405: "Method Not Allowed",
+    408: "Request Timeout",
+    409: "Conflict",
+    410: "Gone",
+    413: "Payload Too Large",
+    414: "URI Too Long",
+    415: "Unsupported Media Type",
+    422: "Unprocessable Entity",
+    429: "Too Many Requests",
+    500: "Internal Server Error",
+    501: "Not Implemented",
+    502: "Bad Gateway",
+    503: "Service Unavailable",
+    504: "Gateway Timeout",
+    505: "HTTP Version Not Supported",
+    507: "Insufficient Storage",
+    508: "Loop Detected",
+  };
+  return statusMap[statusCode] || "Unknown Status";
+}
+
 const app = express();
 
 // Enable JSON parser for POST requests
@@ -92,16 +120,19 @@ async function checkWebsiteStatus(targetUrlStr: string): Promise<Omit<CheckLog, 
     clearTimeout(timeoutId);
     const responseTimeMs = Date.now() - startTime;
     
+    const statusTextFriendly = getHttpStatusText(response.status);
+    const isOnline = response.status >= 100 && response.status < 400; // 1xx, 2xx, 3xx are online. 4xx and 5xx are offline/errors.
+
     return {
       url,
       hostname,
-      online: response.status >= 100 && response.status < 500, // 1xx, 2xx, 3xx, 4xx are technically server-responsive
+      online: isOnline,
       statusCode: response.status,
-      statusText: response.statusText,
+      statusText: statusTextFriendly,
       responseTimeMs,
       ipAddress,
-      errorCategory: response.status >= 500 ? "SERVER_ERROR" : null,
-      errorMessage: response.status >= 500 ? `Server merespon dengan status error ${response.status}.` : null,
+      errorCategory: !isOnline ? (response.status >= 500 ? "SERVER_ERROR" : "CLIENT_ERROR") : null,
+      errorMessage: !isOnline ? `Server merespon dengan status error ${response.status} (${statusTextFriendly}).` : null,
     };
   } catch (fetchErr: any) {
     clearTimeout(timeoutId);
