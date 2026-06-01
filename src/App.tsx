@@ -761,7 +761,7 @@ except Exception as e:
         <div className="flex flex-wrap gap-4 sm:gap-6 uppercase tracking-widest text-[9px] items-center">
           <span>Ver: 2.4.1-Stable</span>
           <span>Cloud: ASIA-SE-RUN</span>
-          <span className="text-gray-400">© 2026 Pulse Technologies Inc.</span>
+          <span className="text-gray-400">© 2026 Down Time Checker</span>
           <span className="text-gray-500 font-semibold normal-case">Made by M S Nizan</span>
         </div>
       </footer>
