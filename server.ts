@@ -1,6 +1,5 @@
 import express from "express";
 import path from "path";
-import { createServer as createViteServer } from "vite";
 import dns from "dns";
 import { promisify } from "util";
 
@@ -314,6 +313,7 @@ app.get("/api/stats", (req, res) => {
 // Vite & Static file handler
 async function bootstrap() {
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
