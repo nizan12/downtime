@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+**Down Time — Check Website Status**
 
-# Run and deploy your AI Studio app
+Alat sederhana untuk memeriksa status dan waktu respons sebuah situs web. Masukkan URL, dan aplikasi akan menampilkan apakah situs aktif, kode status HTTP, dan waktu respon.
 
-This contains everything you need to run your app locally.
+- **Demo (online):** https://downtimecheck.vercel.app/
 
-View your app in AI Studio: https://ai.studio/apps/3e014228-7002-477b-81fe-f3ec4762f5e1
+**Fitur utama**
+- **Cek URL sekali pakai:** Periksa status HTTP dan waktu respons.
+- **Riwayat pemeriksaan:** Menyimpan (lokal/sesi) hasil pemeriksaan terbaru.
+- **Antarmuka ringan:** Dibangun dengan Vite + React + TypeScript.
 
-## Run Locally
+**Mulai cepat (lokal)**
+- **Persyaratan:** Node.js (LTS) dan npm/yarn
+- Install dependensi: `npm install`
+- Jalankan development server: `npm run dev`
 
-**Prerequisites:**  Node.js
+**Bangun & Jalankan produksi**
+- Buat build: `npm run build`
+- Jalankan preview: `npm run preview` atau deploy ke Vercel/Netlify
 
+**Struktur penting**
+- **Server/API:** lihat [server.ts](server.ts) dan [api/index.ts](api/index.ts)
+- **Frontend:** sumber React ada di [src/](src/)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+**Kontribusi**
+- Bug report dan pull request dipersilakan. Mulai dengan membuat issue untuk mendiskusikan perubahan besar.
+
+Lisensi: cek file lisensi repo jika ada.
+
+File ini diperbarui agar menjelaskan fungsi dan cara menjalankan aplikasi "Down Time".
